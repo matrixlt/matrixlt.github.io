@@ -229,6 +229,139 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/27/微积分拾遗1-泰勒公式与极值/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/02/27/微积分拾遗1-泰勒公式与极值/" itemprop="url">微积分拾遗1--泰勒公式与极值</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-27T01:45:46+08:00">
+                2018-02-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>泰勒公式可以看作是对一个函数在一点处的近似，而函数极值也是函数在一点的性质。这种联系使得<br>利用泰勒公式对极值点的判断成为了可能。</p>
+</blockquote>
+<h1 id="一元的情况"><a href="#一元的情况" class="headerlink" title="一元的情况"></a>一元的情况</h1><p><strong>定理</strong>：设函数$f(x)$在$x_0$处具有直到$k$阶导数，并且<br>$$f’(x_0)=f’’(x_0)=\cdots=f^{(k-1)}(x_0)=0, f^{(k)}(x_0)\neq0$$<br>那么:</p>
+<ul>
+<li>当$k$为奇数时,$x_0$不是$f(x)$的极值点。</li>
+<li>当$k$为偶数时,$x_0$是$f(x)$的极值点。若$f^{(k)}(x_0)&lt;0$则$x_0$是$f(x)$的严格极大值,若$f^{(k)}(x_0)&gt;0$则$x_0$是$f(x)$的严格极小值.</li>
+</ul>
+<p><strong>定理的证明</strong><br>由$$f(x) = f(x_0) + f^{(k)}(x_0)(x-x_0)^k + o((x-x_0)^k)$$<br>得$$\frac{f(x_0) - f(x_0)}{(x-x_0)^k} = f^{(k)}(x_0) + o(1)$$<br>故等式左侧在$x_0$附近的符号完全由$f^{(k)}(x_0)$确定.</p>
+<ul>
+<li>当$k$为奇数时，$f(x) - f(x_0)$在$x_0$左右两侧变号,$x_0$不是$f(x)$的极值点。</li>
+<li>当$k$为偶数时,$f(x) - f(x_0)$在$x_0$左右两侧不变号，若$f^{(k)}(x_0)&lt;0$则$f(x) - f(x_0)&lt;0$,$x_0$是$f(x)$的严格极大值点。同理若$f^{(k)}(x_0)&gt;0$则$f(x) - f(x_0)&gt;0$,$x_0$是$f(x)$的严格极小值点。</li>
+</ul>
+<h1 id="多元的情况"><a href="#多元的情况" class="headerlink" title="多元的情况"></a>多元的情况</h1><p><strong>定理</strong>：</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/27/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -390,7 +523,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -607,6 +740,28 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
 
   
 
