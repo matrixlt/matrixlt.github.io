@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="matrixlt&#39; blog">
 <meta property="og:description" content="泰勒公式可以看作是对一个函数在一点处的近似，而函数极值也是函数在一点的性质。这种联系使得利用泰勒公式对极值点的判断成为了可能。  一元的情况定理：设函数$f(x)$在$x_0$处具有直到$k$阶导数，并且$$f’(x_0)=f’’(x_0)=\cdots=f^{(k-1)}(x_0)=0, f^{(k)}(x_0)\neq0$$那么:  当$k$为奇数时,$x_0$不是$f(x)$的极值点。 当">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-02-27T05:35:14.673Z">
+<meta property="og:updated_time" content="2018-03-03T13:05:51.018Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微积分拾遗1--泰勒公式与极值">
 <meta name="twitter:description" content="泰勒公式可以看作是对一个函数在一点处的近似，而函数极值也是函数在一点的性质。这种联系使得利用泰勒公式对极值点的判断成为了可能。  一元的情况定理：设函数$f(x)$在$x_0$处具有直到$k$阶导数，并且$$f’(x_0)=f’’(x_0)=\cdots=f^{(k-1)}(x_0)=0, f^{(k)}(x_0)\neq0$$那么:  当$k$为奇数时,$x_0$不是$f(x)$的极值点。 当">
@@ -312,7 +312,12 @@
 <li>当$k$为奇数时，$f(x) - f(x_0)$在$x_0$左右两侧变号,$x_0$不是$f(x)$的极值点。</li>
 <li>当$k$为偶数时,$f(x) - f(x_0)$在$x_0$左右两侧不变号，若$f^{(k)}(x_0)&lt;0$则$f(x) - f(x_0)&lt;0$,$x_0$是$f(x)$的严格极大值点。同理若$f^{(k)}(x_0)&gt;0$则$f(x) - f(x_0)&gt;0$,$x_0$是$f(x)$的严格极小值点。</li>
 </ul>
-<h1 id="多元的情况"><a href="#多元的情况" class="headerlink" title="多元的情况"></a>多元的情况</h1><p><strong>定理</strong>：</p>
+<h1 id="多元的情况"><a href="#多元的情况" class="headerlink" title="多元的情况"></a>多元的情况</h1><p><strong>定理</strong>：设$x_0$是$n$元函数$f$的一个驻点，函数f在$x_0$的某一领域内有连续的二阶偏导数</p>
+<ul>
+<li>如果Hesse方阵$\mathbf Hf(x_0)$是严格正（负）定方阵，那么$x_0$是$f$的一个严格极小（大）值点</li>
+<li>如果Hesse方阵$\mathbf Hf(x_0)$是不定方阵，那么$x_0$不是$f$的极值点</li>
+</ul>
+<p><strong>定理的证明</strong></p>
 
       
     </div>
