@@ -81,16 +81,16 @@
 
 <meta name="description" content="数列极限的直观理解直观图像观察定义：  $\lim_\limits{n\to\infty}a_{n} = A  \Leftrightarrow \forall \epsilon&amp;gt;0, \exists N, n&amp;gt;N \Rightarrow |a_{n}-A|&amp;lt;\epsilon.$  我们可以画出示意图：  直观的看，数列极限为A的含义就是N之后有连续的无穷多项都在A附近。这图像是非">
 <meta property="og:type" content="article">
-<meta property="og:title" content="微积分拾遗1--极限理论">
+<meta property="og:title" content="微积分拾遗1--数列极限与函数极限">
 <meta property="og:url" content="http://yoursite.com/2018/10/14/微积分拾遗1-极限理论/index.html">
 <meta property="og:site_name" content="matrixlt&#39; blog">
 <meta property="og:description" content="数列极限的直观理解直观图像观察定义：  $\lim_\limits{n\to\infty}a_{n} = A  \Leftrightarrow \forall \epsilon&amp;gt;0, \exists N, n&amp;gt;N \Rightarrow |a_{n}-A|&amp;lt;\epsilon.$  我们可以画出示意图：  直观的看，数列极限为A的含义就是N之后有连续的无穷多项都在A附近。这图像是非">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://yoursite.com/2018/10/14/微积分拾遗1-极限理论/limit1.PNG">
 <meta property="og:image" content="http://yoursite.com/2018/10/14/微积分拾遗1-极限理论/limit2.PNG">
-<meta property="og:updated_time" content="2018-10-15T10:53:54.745Z">
+<meta property="og:updated_time" content="2018-10-15T14:02:03.948Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="微积分拾遗1--极限理论">
+<meta name="twitter:title" content="微积分拾遗1--数列极限与函数极限">
 <meta name="twitter:description" content="数列极限的直观理解直观图像观察定义：  $\lim_\limits{n\to\infty}a_{n} = A  \Leftrightarrow \forall \epsilon&amp;gt;0, \exists N, n&amp;gt;N \Rightarrow |a_{n}-A|&amp;lt;\epsilon.$  我们可以画出示意图：  直观的看，数列极限为A的含义就是N之后有连续的无穷多项都在A附近。这图像是非">
 <meta name="twitter:image" content="http://yoursite.com/2018/10/14/微积分拾遗1-极限理论/limit1.PNG">
 
@@ -128,7 +128,7 @@
 
 
 
-  <title>微积分拾遗1--极限理论 | matrixlt' blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>微积分拾遗1--数列极限与函数极限 | matrixlt' blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -252,7 +252,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">微积分拾遗1--极限理论</h1>
+          <h1 class="post-title" itemprop="name headline">微积分拾遗1--数列极限与函数极限</h1>
         
 
         <div class="post-meta">
@@ -327,7 +327,38 @@
 <h1 id="函数在某点的极限是函数此点附近领域的性质"><a href="#函数在某点的极限是函数此点附近领域的性质" class="headerlink" title="函数在某点的极限是函数此点附近领域的性质"></a>函数在某点的极限是函数此点附近领域的性质</h1><p>函数极限的定义和性质可以类比数列极限，这里只强调一点即函数在$x_{0}$处的极限与函数在$x_{0}$的值或事先给定的一定$x_{0}+\epsilon$处的值都无关<br>这是因为事先给定的一点总不能在考虑极限时包括在$x_{0}$的去心领域内</p>
 <p>了解了这一点，加上泰勒公式描述了函数在某点处的多项式展开，利用泰勒公式求某个极限就成为了在函数性质好（满足泰勒定理要求时）的通用方法</p>
 <h2 id="利用泰勒公式求极限"><a href="#利用泰勒公式求极限" class="headerlink" title="利用泰勒公式求极限"></a>利用泰勒公式求极限</h2><p>首先考察多项式分式的极限<br>$\lim_\limits{x\to0} \frac{a_{0}+…+a_{n}x^{n}}{b_{0}+…+b_{m}x^{m}}$<br>我们分别按幂次从低到高考察分子分母的系数，去除所有为零的系数，得到下式<br>$\lim_\limits{x\to0} \frac{a_{j}x^{j}+o(x^{j})}{b_{k}x^{k}+o(x^{k})}$<br>那么<br>$   lim = \frac{a_{j}}{b_{k}} \quad, j = k $<br>$   lim =     0 \quad, j &gt; k $<br>$   lim =     not \quad exist \quad, j &lt; k $</p>
-<p>至此，求极限时我们只需将所求函数展开至足够多项，再应用上面的定理即可</p>
+<p>至此，求极限时我们只需将所求函数展开至足够多项，再应用上面的定理即可<br>注意到有时已知极限存在，此时只要求出分母的次数与系数，再检查分子大于等于这个次数的项即可</p>
+<h2 id="无穷小的观点"><a href="#无穷小的观点" class="headerlink" title="无穷小的观点"></a>无穷小的观点</h2><p>无穷小的观点简洁易懂，将极限式化为易于运算的等式，在思考问题时很直观<br>下面的定理体现了这一点，而且定理本身也是很有用的</p>
+<p><strong>定理</strong>：设函数$f(x)$在$x_0$处具有直到$k$阶导数，并且<br>$$f’(x_0)=f’’(x_0)=\cdots=f^{(k-1)}(x_0)=0, f^{(k)}(x_0)\neq0$$<br>那么:</p>
+<ul>
+<li>当$k$为奇数时,$x_0$不是$f(x)$的极值点。</li>
+<li>当$k$为偶数时,$x_0$是$f(x)$的极值点。若$f^{(k)}(x_0)&lt;0$则$x_0$是$f(x)$的严格极大值,若$f^{(k)}(x_0)&gt;0$则$x_0$是$f(x)$的严格极小值.</li>
+</ul>
+<p><strong>定理的证明</strong><br>由$$f(x) = f(x_0) + f^{(k)}(x_0)(x-x_0)^k + o((x-x_0)^k)$$<br>得$$\frac{f(x_0) - f(x_0)}{(x-x_0)^k} = f^{(k)}(x_0) + o(1)$$<br>故等式左侧在$x_0$附近的符号完全由$f^{(k)}(x_0)$确定.</p>
+<ul>
+<li>当$k$为奇数时，$f(x) - f(x_0)$在$x_0$左右两侧变号,$x_0$不是$f(x)$的极值点。</li>
+<li>当$k$为偶数时,$f(x) - f(x_0)$在$x_0$左右两侧不变号，若$f^{(k)}(x_0)&lt;0$则$f(x) - f(x_0)&lt;0$,$x_0$是$f(x)$的严格极大值点。同理若$f^{(k)}(x_0)&gt;0$则$f(x) - f(x_0)&gt;0$,$x_0$是$f(x)$的严格极小值点。</li>
+</ul>
+<h1 id="例题与解答"><a href="#例题与解答" class="headerlink" title="例题与解答"></a>例题与解答</h1><h2 id="一个常见的错误"><a href="#一个常见的错误" class="headerlink" title="一个常见的错误"></a>一个常见的错误</h2><blockquote>
+<p>求$\lim_\limits{x\to0} \frac{1-xcot(x)}{x^{2}cos(x^{2})}$</p>
+</blockquote>
+<p>解1(错误)<br>$lim = \frac{1-x\frac{cos(x)}{sin(x)}} {x^{2}cos(x^{2})}<br>     = \frac{1-x\frac{1}{sin(x)}} {x^{2}}<br>     = \frac{sin(x)-x}{sin(x)x^{2}}<br>     = \frac{-\frac{x^{3}}{6}+o(x^{3})}{x^{3}+o(x^{3})}<br>     = -\frac{1}{6}$</p>
+<p>解2(正确)<br>$lim = \frac{1-x\frac{cos(x)}{sin(x)}} {x^{2}cos(x^{2})}<br>     = \frac{sin(x)-xcos(x)} {x^{2}cos(x^{2})sin(x)}<br>     = \frac{x-\frac{1}{6}x^{3}+o(x^{3}) -x(1-\frac{1}{2}x^{2}+o(x^{2}))}{x^{3}+o(x^{3})}<br>     = \frac{1}{3}<br>$</p>
+<p>解1错误的原因在于错误的将0带入了cos(x)求值，但解2中带入$cos(x^{2})$是对的，这是因为极限的积等于积的极限(在极限都存在时)<br>这个例子告诉我们在每一步变换时都要想清楚根据</p>
+<h2 id="泰勒公式与无穷小的典型应用"><a href="#泰勒公式与无穷小的典型应用" class="headerlink" title="泰勒公式与无穷小的典型应用"></a>泰勒公式与无穷小的典型应用</h2><blockquote>
+<p>求$\lim_\limits{x\to0} \frac{tan(sin(x))-sin(tan(x))} {tan(x)-sin(x)}$</p>
+</blockquote>
+<p>$tan(x)-sin(x) = sin(x)(\frac{1-cos(x)}{cos(x)}) = \frac{x^{3}}{2} + o(x^{3})$</p>
+<p>通过定义求tan(x)的泰勒展开得$tan(x) = x + \frac{x^{3}}{3} + o(x^{3})$</p>
+<p>$tan(sin(x))-sin(tan(x)) = sin(x)-\frac{sin^{3}(x)}{3}+o(sin^{3}(x)) -(tan(x)-\frac{tan^{3}(x)}{6}+o(tan^{3}(x)))$<br>$                          = x - \frac{x^{3}}{6} + \frac{x^{3}}{3} -(x+\frac{x^{3}}{3}-\frac{x^{3}}{6}) + o(x^{3})<br>                        = 0 + o(x^{3})$</p>
+<p>故极限为0</p>
+<p>另一个更困难的例子是</p>
+<blockquote>
+<p>求$\lim_\limits{n\to\infty} n[(1+\frac{x}{n})^{n}-e^{x}]$</p>
+</blockquote>
+<h2 id="一类特殊问题"><a href="#一类特殊问题" class="headerlink" title="一类特殊问题"></a>一类特殊问题</h2><blockquote>
+<p>设$A_{n} = \frac{n}{n^{2}+1^{2}}+\frac{n}{n^{2}+2^{2}}+…+\frac{n}{n^{2}+n^{2}}$,求$\lim_\limits{n\to\infty}n(\frac{\pi}{4}-A_{n})$</p>
+</blockquote>
 
       
     </div>
@@ -474,7 +505,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数列极限的直观理解"><span class="nav-number">1.</span> <span class="nav-text">数列极限的直观理解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#直观图像"><span class="nav-number">1.1.</span> <span class="nav-text">直观图像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#子列"><span class="nav-number">1.2.</span> <span class="nav-text">子列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#任意多与无穷"><span class="nav-number">1.3.</span> <span class="nav-text">任意多与无穷</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#函数在某点的极限是函数此点附近领域的性质"><span class="nav-number">2.</span> <span class="nav-text">函数在某点的极限是函数此点附近领域的性质</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#利用泰勒公式求极限"><span class="nav-number">2.1.</span> <span class="nav-text">利用泰勒公式求极限</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数列极限的直观理解"><span class="nav-number">1.</span> <span class="nav-text">数列极限的直观理解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#直观图像"><span class="nav-number">1.1.</span> <span class="nav-text">直观图像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#子列"><span class="nav-number">1.2.</span> <span class="nav-text">子列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#任意多与无穷"><span class="nav-number">1.3.</span> <span class="nav-text">任意多与无穷</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#函数在某点的极限是函数此点附近领域的性质"><span class="nav-number">2.</span> <span class="nav-text">函数在某点的极限是函数此点附近领域的性质</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#利用泰勒公式求极限"><span class="nav-number">2.1.</span> <span class="nav-text">利用泰勒公式求极限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#无穷小的观点"><span class="nav-number">2.2.</span> <span class="nav-text">无穷小的观点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#例题与解答"><span class="nav-number">3.</span> <span class="nav-text">例题与解答</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一个常见的错误"><span class="nav-number">3.1.</span> <span class="nav-text">一个常见的错误</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#泰勒公式与无穷小的典型应用"><span class="nav-number">3.2.</span> <span class="nav-text">泰勒公式与无穷小的典型应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一类特殊问题"><span class="nav-number">3.3.</span> <span class="nav-text">一类特殊问题</span></a></li></ol></li></ol></div>
             
 
           </div>
