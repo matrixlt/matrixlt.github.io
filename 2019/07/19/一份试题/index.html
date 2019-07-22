@@ -79,14 +79,17 @@
 
 
 
+<meta name="description" content="分析 求$f(x)=\left| sin(x) \right|$的Fourier级数,并求$\sum\limits_{k=1}^{\infty} \frac{1}{(2k)^2-1}$.  已知数列${a_{n}}$定义如下, $a_{0}$为满足$a_{0} \leq x$的最大整数,$a_{1}$为满足$a_{0}+\frac{a_{1}}{q} \leq x$的最大整数, $a_{n}$为满">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一份试题">
 <meta property="og:url" content="http://yoursite.com/2019/07/19/一份试题/index.html">
 <meta property="og:site_name" content="matrixlt&#39; blog">
+<meta property="og:description" content="分析 求$f(x)=\left| sin(x) \right|$的Fourier级数,并求$\sum\limits_{k=1}^{\infty} \frac{1}{(2k)^2-1}$.  已知数列${a_{n}}$定义如下, $a_{0}$为满足$a_{0} \leq x$的最大整数,$a_{1}$为满足$a_{0}+\frac{a_{1}}{q} \leq x$的最大整数, $a_{n}$为满">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-07-19T13:08:51.109Z">
+<meta property="og:updated_time" content="2019-07-22T12:40:43.945Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一份试题">
+<meta name="twitter:description" content="分析 求$f(x)=\left| sin(x) \right|$的Fourier级数,并求$\sum\limits_{k=1}^{\infty} \frac{1}{(2k)^2-1}$.  已知数列${a_{n}}$定义如下, $a_{0}$为满足$a_{0} \leq x$的最大整数,$a_{1}$为满足$a_{0}+\frac{a_{1}}{q} \leq x$的最大整数, $a_{n}$为满">
 
 
 
@@ -296,14 +299,60 @@
       
 
       
-        
-
-	<div class="row">
-    <embed src="./1.pdf" width="100%" height="550" type="application/pdf">
-	</div>
-
-
-
+        <h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><ol>
+<li><p>求$f(x)=\left| sin(x) \right|$的Fourier级数,并求$\sum\limits_{k=1}^{\infty} \frac{1}{(2k)^2-1}$.</p>
+</li>
+<li><p>已知数列${a_{n}}$定义如下,<br> $a_{0}$为满足$a_{0} \leq x$的最大整数,$a_{1}$为满足$a_{0}+\frac{a_{1}}{q} \leq x$的最大整数,<br> $a_{n}$为满足$a_{0}+\frac{a_{1}}{p}+ \cdots + \frac{a_{n}}{p^{n}} \leq x$的最大整数.其中$x&gt;0,p\in \mathbb{N}, p \geq 2$<br> 证明:</p>
+<ol>
+<li><p>$0 \leq a_{n} \leq p-1$</p>
+</li>
+<li><p>设$r_{n} = a_{0}+\frac{a_{1}}{p}+ \cdots + \frac{a_{n}}{p^{n}}$,证明$\sup r_{n} = x$</p>
+</li>
+</ol>
+</li>
+<li><p>已知$f(x)$在$(a,b)$上二阶可导,在$[a,b]$上连续,且其图像与连接$(a,f(a))$与$(b,(f(b))$两点的直线交于第三点.<br>证明:存在$c \in (a,b), f’’(c)=0$</p>
+</li>
+<li><p>已知$F(y) = \int\limits_{0}^{+\infty} \frac{sin(xy)}{x(1+x^2)} dx$.</p>
+<ol>
+<li><p>证明$F(y)$二阶可导</p>
+</li>
+<li><p>求$F(y)$的解析表达式</p>
+</li>
+</ol>
+</li>
+<li><p>$f(x,y)$有二阶连续偏导数,$E$为单位圆.求证<br> $$\lim_{r \to 0^{+}} \frac{\frac{1}{\pi r^2} \iint_E f(x,y)d\sigma - f(0,0)}{r^{2}} = \frac{1}{4}(f_{xx}(0,0)+f_{yy}(0,0))$$</p>
+</li>
+<li><p>$f(x)$有连续的导函数.证明:</p>
+<ol>
+<li><p>$E$为零测集,则$f(E)$也为零测集</p>
+</li>
+<li><p>$E$为可测集,则$f(E)$也为可测集</p>
+</li>
+</ol>
+</li>
+</ol>
+<h1 id="代数"><a href="#代数" class="headerlink" title="代数"></a>代数</h1><ol>
+<li><p>定义换位子$[X,Y] = XY - YX$,求证:</p>
+<ol>
+<li><p>$A,B \in M_{n}(\mathbb{R}), tr([A,B]) = O$</p>
+</li>
+<li><p>$X,Y,Z \in M_{2}(\mathbb{R}), [[X,Y]^2,Z] = O$</p>
+</li>
+</ol>
+</li>
+<li><p>求证:$A \in M_{n}(\mathbb{C})$,存在$N \in \mathbb{N}$使得$A^{N} = E$的充要条件是$A$可对角化,且所有特征值均为单位根.</p>
+</li>
+<li><p>已知$A,B$是实对称矩阵.且$AB = BA$. 求证:</p>
+<ol>
+<li><p>$AB$也是实对称矩阵</p>
+</li>
+<li><p>若$A$正定,$B$负定且$A$为对角形矩阵,证明$AB$是负定的</p>
+</li>
+<li><p>若$A$正定,$B$负定,证明$AB$是负定的</p>
+</li>
+</ol>
+</li>
+</ol>
 
       
     </div>
@@ -392,8 +441,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -435,6 +493,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#分析"><span class="nav-number">1.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代数"><span class="nav-number">2.</span> <span class="nav-text">代数</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
