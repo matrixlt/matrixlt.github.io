@@ -20,28 +20,35 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="matrixlt&#39;s blog">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="基路径测试在进行白盒测试时，我们常常不能穷尽程序的所有路径。这时一个可行的选择是将程序看成是由一个个独立路径组合而成，转而去测试每一条独立路径上程序的行为。这里路径指的是从程序的起始点到结束点的一条通路，这里我们假设程序有且只有一个起始点与结束点。而独立路径指的是这条路径不能通过其他路径的线性组合得到。这种将程序分解成独立路径的思想是由McCabe在他1976年的论文 A Complexity M">
+<meta property="og:type" content="article">
+<meta property="og:title" content="圈复杂度">
+<meta property="og:url" content="http://example.com/2019/07/21/%E5%9C%88%E5%A4%8D%E6%9D%82%E5%BA%A6/index.html">
 <meta property="og:site_name" content="matrixlt&#39;s blog">
+<meta property="og:description" content="基路径测试在进行白盒测试时，我们常常不能穷尽程序的所有路径。这时一个可行的选择是将程序看成是由一个个独立路径组合而成，转而去测试每一条独立路径上程序的行为。这里路径指的是从程序的起始点到结束点的一条通路，这里我们假设程序有且只有一个起始点与结束点。而独立路径指的是这条路径不能通过其他路径的线性组合得到。这种将程序分解成独立路径的思想是由McCabe在他1976年的论文 A Complexity M">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2019/07/21/%E5%9C%88%E5%A4%8D%E6%9D%82%E5%BA%A6/%E5%9C%88%E5%A4%8D%E6%9D%82%E5%BA%A6/f1.jpg">
+<meta property="og:image" content="http://example.com/2019/07/21/%E5%9C%88%E5%A4%8D%E6%9D%82%E5%BA%A6/%E5%9C%88%E5%A4%8D%E6%9D%82%E5%BA%A6/f2.jpg">
+<meta property="article:published_time" content="2019-07-21T05:29:57.000Z">
+<meta property="article:modified_time" content="2021-12-28T05:14:27.698Z">
 <meta property="article:author" content="matrixlt">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2019/07/21/%E5%9C%88%E5%A4%8D%E6%9D%82%E5%BA%A6/%E5%9C%88%E5%A4%8D%E6%9D%82%E5%BA%A6/f1.jpg">
 
-<link rel="canonical" href="http://example.com/">
+<link rel="canonical" href="http://example.com/2019/07/21/%E5%9C%88%E5%A4%8D%E6%9D%82%E5%BA%A6/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
 
-  <title>matrixlt's blog</title>
+  <title>圈复杂度 | matrixlt's blog</title>
   
 
 
@@ -143,89 +150,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/06/15/Excel%E4%B8%AD%E7%9A%84%E5%88%97%E5%8F%B7%E8%BD%AC%E6%8D%A2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="matrixlt">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="matrixlt's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/06/15/Excel%E4%B8%AD%E7%9A%84%E5%88%97%E5%8F%B7%E8%BD%AC%E6%8D%A2/" class="post-title-link" itemprop="url">Excel的列号转换</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-06-15 20:11:31" itemprop="dateCreated datePublished" datetime="2020-06-15T20:11:31+08:00">2020-06-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-28 13:10:08" itemprop="dateModified" datetime="2021-12-28T13:10:08+08:00">2021-12-28</time>
-              </span>
-
-          
-
-        </div>
-      </header>
 
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>在默认状态下，Excel中的列从第一列开始使用A，B，C，..，Z，AA，AB，..作为列号。如果我们已知需要读写第n列，那么我们需要找到第n列所对应的列号。</p>
-<p>然而Excel实际上有另一种更加统一的表示单元格的方法，即使用RnCm代表第n行第m列的单元格，例如A2单元格可表示为R2C1。使用这种表示方式只需要沿着”文件”-&gt;”选项”-&gt;”公式”-&gt;勾选”R1C1引用样式”操作即可。这里需要注意，启用这种选项会导致默认的引用样式失效。换言之，引用样式是Excel表格属性的一部分，你只能同时使用一种引用样式。</p>
-<p>上面的方法可以解决读写第n列的问题，大不了先换成R1C1样式，发给别人用之前再换回默认样式。不过，求第n列的默认列号仍然是一个有趣的问题。下面我们仔细考察这种转换。</p>
-<p>第一个出现的想法应该是：这不就是26进制数吗，只是使用了A..Z表示1..26这26个数码而已。沿着这个想法，我们将n转换为26进制，再对每一位应用1..26 -&gt; A..Z的映射似乎就大功告成了。</p>
-<p>说起来容易做起来难。首先遇到的问题就是，化为26进制时是使用0..25这26个数码表示的，但是A..Z对应的是1..26。似乎我们应当这样考虑:<br>$$n \xrightarrow{f}<br>\overline{n_1n_2..n_k}<em>{26}(n_i \in {0,1,..,25})<br>\xrightarrow{g} \overline{n_1n_2..n_k}</em>{26}(n_i \in {1,2,..,26})<br>\xrightarrow{h} \overline{n_1n_2..n_k}_{26}(n_i \in {A,B,..,Z})$$<br>那么似乎很显然的$g: x \rightarrow{} x+1$,f与h如前所述。这样的想法当然是大错特错,以第2列为例：$2\rightarrow{} 2 \rightarrow{}3 \rightarrow{} C$实在荒谬。</p>
-<p>想当然要不得。A..Z与1..26对应可是最确实的事实。那么似乎是<br>$g: x \rightarrow{} 26 \text{ if x == 0 else x}$。这当然也不对，以第26列为例:$26 \rightarrow \overline{10} \rightarrow \overline{1,26} \rightarrow \overline{AZ}$。这到底怎么回事，直觉上f与h是那么正确，但是怎么和g组合起来就不对呢？</p>
-<p>我们先退一步，考虑反问题：已知列号，求其在第几列。按照A..Z对应1..26的原则，似乎有<br>$$\overline{n_1n_2..n_k}(n_i \in {A,B,..,Z}) \xrightarrow{h^{-1}} \overline{n_1n_2..n_k}<em>{26}(n_i \in {1,2,..,26})\xrightarrow{} \sum</em>{i=1}^kn_i26^{i-1}$$<br>上面的变换是完全正确的。如$B\rightarrow{}2\rightarrow{}2$,$Z\rightarrow{}26\rightarrow{}26\cdot26^0$,$YYZ\rightarrow{}25,25,26\rightarrow{} 25\cdot26^2 + 25\cdot26^1+26\cdot26^0=26^3$</p>
-<p>这个逆变换给了我们极大启示：首先变换h没有问题，而变换g的作用应该是将$\sum_{i=1}^kn_i26^{i-1}(n_i \in {0,1,..,25}) \xrightarrow{g} \sum_{i=1}^kn_i26^{i-1}(n_i \in {1,2,..,26})$。这实现起来很简单，在进制转换时，原来遇到余数为0时其实就是余数为26。只不过原来不允许使用26这个数字，只好把这整个26扔到下一位去处理，现在可以用了，直接在本位上写上26就完成了。这一步完全与转换为26进制的步骤重复，故f与g可以合并。</p>
-<p>代码如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">number_to_char_26</span>(<span class="params">n: <span class="built_in">int</span></span>) -&gt; <span class="built_in">str</span>:</span></span><br><span class="line">    <span class="keyword">if</span> <span class="number">1</span> &lt;= n &lt;= <span class="number">26</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">chr</span>(<span class="built_in">ord</span>(<span class="string">&quot;A&quot;</span>) + n - <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">excel_col_number</span>(<span class="params">col_number: <span class="built_in">int</span></span>) -&gt; <span class="built_in">str</span>:</span></span><br><span class="line">    <span class="comment"># 求Excel第n列列号</span></span><br><span class="line">    char_26 = []</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        remainder = col_number % <span class="number">26</span></span><br><span class="line">        <span class="keyword">if</span> remainder == <span class="number">0</span>:</span><br><span class="line">            remainder = <span class="number">26</span></span><br><span class="line">        char_26.append(remainder)</span><br><span class="line">        col_number = (col_number - remainder) // <span class="number">26</span></span><br><span class="line">        <span class="keyword">if</span> col_number == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    char_26.reverse()</span><br><span class="line">    char_26 = <span class="string">&quot;&quot;</span>.join(<span class="built_in">map</span>(number_to_char_26, char_26))</span><br><span class="line">    <span class="keyword">return</span> char_26</span><br></pre></td></tr></table></figure>
-
-<p>如果用一句话总结这个问题的关键是什么，那么可以引用我的精通计算机(包括C++)的好朋友yinf(他的博客地址为 <a target="_blank" rel="noopener" href="http://www.linyinfeng.com/">www.linyinfeng.com</a> )的看法作为答案:“不管前面的数如何最后一位都能靠除26直接确定”。这句话说明了我们只需要除一次26，根据余数就可以判断最后一位是1..26中的哪一个数码，之后将商作为新数字，不断递归下去就得到了问题的答案。他使用Haskell写成的代码如下，这里将0作为递归起点，对应空串，使得代码非常简洁优雅：</p>
-<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span>           Data.Char</span><br><span class="line"></span><br><span class="line"><span class="title">toExcel</span> :: <span class="type">Int</span> -&gt; <span class="type">String</span></span><br><span class="line"><span class="title">toExcel</span> n = <span class="keyword">if</span> n == <span class="number">0</span> <span class="keyword">then</span> <span class="string">&quot;&quot;</span> <span class="keyword">else</span> toExcel higher ++ [digitLetter]</span><br><span class="line"> <span class="keyword">where</span></span><br><span class="line">  remainder   = n `mod` <span class="number">26</span></span><br><span class="line">  digit       = <span class="keyword">if</span> remainder == <span class="number">0</span> <span class="keyword">then</span> <span class="number">26</span> <span class="keyword">else</span> remainder</span><br><span class="line">  digitLetter = chr (ord &#x27;<span class="type">A&#x27;</span> + digit - <span class="number">1</span>)</span><br><span class="line">  higher      = (n - digit) `div` <span class="number">26</span></span><br></pre></td></tr></table></figure>
-
-<p>至此，我们完整地解决了这个问题。这个问题看起来简单，关键代码只有将0换为26的一行，但是一次做对也不容易。在解决它的过程中，考虑其逆变换起到了很大的作用，这是一种具有一般性的思路。最后感谢CSDN用户taller_2000的博客《Excel列标与列号转换》，若不是看了那篇博客，我会花去更多的时间在这个问题上。CSDN上确实有原创的好内容，可惜不好的内容多得淹没了这些好内容。</p>
-<p>不过也许你还有一些疑问，比如在k进制下，任取$a_i \in {n_1, n_2,..,n_k} \subset \mathbb{N},\sum_{i=1}^na_ik^{i-1}$可以表示哪些数？这些数有什么特征？表示是唯一的吗？这些问题应该不是很难，但探索它们也可满足我们的好奇心。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
@@ -241,10 +169,9 @@
       <meta itemprop="name" content="matrixlt's blog">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/07/21/%E5%9C%88%E5%A4%8D%E6%9D%82%E5%BA%A6/" class="post-title-link" itemprop="url">圈复杂度</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          圈复杂度
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -274,7 +201,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="基路径测试"><a href="#基路径测试" class="headerlink" title="基路径测试"></a>基路径测试</h2><p>在进行白盒测试时，我们常常不能穷尽程序的所有路径。这时一个可行的选择是将程序看成是由一个个独立路径组合而成，转而去测试每一条独立路径上程序的行为。<br>这里<em>路径</em>指的是从程序的起始点到结束点的一条通路，这里我们假设程序有且只有一个起始点与结束点。而<em>独立路径</em>指的是这条路径不能通过其他路径的线性组合得到。这种将程序分解成独立路径的思想是由McCabe在他1976年的论文 <em>A Complexity Measure</em> 中提出的，在这篇论文中，他也意识到了这是一种有用的测试方法。</p>
+        <h2 id="基路径测试"><a href="#基路径测试" class="headerlink" title="基路径测试"></a>基路径测试</h2><p>在进行白盒测试时，我们常常不能穷尽程序的所有路径。这时一个可行的选择是将程序看成是由一个个独立路径组合而成，转而去测试每一条独立路径上程序的行为。<br>这里<em>路径</em>指的是从程序的起始点到结束点的一条通路，这里我们假设程序有且只有一个起始点与结束点。而<em>独立路径</em>指的是这条路径不能通过其他路径的线性组合得到。这种将程序分解成独立路径的思想是由McCabe在他1976年的论文 <em>A Complexity Measure</em> 中提出的，在这篇论文中，他也意识到了这是一种有用的测试方法。</p>
 <h2 id="独立路径个数-圈复杂度"><a href="#独立路径个数-圈复杂度" class="headerlink" title="独立路径个数 = 圈复杂度"></a>独立路径个数 = 圈复杂度</h2><p>有了这种思想，我们的第一个问题就是对于特定的程序，这样的独立路径有多少个。McCabe直接引用了图论中的结论：</p>
 <p>设图$G$有$n$个顶点，$e$条边，$p$个连通分枝，那么其圈复杂度（cyclomaticnumber）定义为：$v(G)=e-n+p$。</p>
 <h3 id="定理1"><a href="#定理1" class="headerlink" title="定理1 "></a>定理1 <a name="强连通定理"></a></h3><p>对于一个强连通图，其圈复杂度等于其极大线性无关回路的个数。</p>
@@ -327,139 +254,33 @@
 </ol>
 <p>论文中包含的内容非常丰富，又不十分难懂，可惜时间所限没有细读。McCabe作为数学出身后转向编程的软件工程研究者，<br>懂得线性代数与图论并不奇怪，但是他能够发现程序的控制流图中的线性空间，并结合理论发展出基于圈复杂度的程序分解与测试<br>方法十分可贵。数学有趣之处不仅在于其高深的理论与严谨的推理，更在于它应用广泛，无处不在。</p>
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2019/07/19/%E4%B8%80%E4%BB%BD%E8%AF%95%E9%A2%98/">
+        
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="matrixlt">
-      <meta itemprop="description" content="">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="matrixlt's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/07/19/%E4%B8%80%E4%BB%BD%E8%AF%95%E9%A2%98/" class="post-title-link" itemprop="url">一份试题</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-07-19 20:49:40" itemprop="dateCreated datePublished" datetime="2019-07-19T20:49:40+08:00">2019-07-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-12-28 13:04:32" itemprop="dateModified" datetime="2021-12-28T13:04:32+08:00">2021-12-28</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><ol>
-<li><p>求$f(x)=\left| sin(x) \right|$的Fourier级数,并求$\sum\limits_{k=1}^{\infty} \frac{1}{(2k)^2-1}$.</p>
-</li>
-<li><p>已知数列${a_{n}}$定义如下,<br> $a_{0}$为满足$a_{0} \leq x$的最大整数,$a_{1}$为满足$a_{0}+\frac{a_{1}}{p} \leq x$的最大整数,<br> $a_{n}$为满足$a_{0}+\frac{a_{1}}{p}+ \cdots + \frac{a_{n}}{p^{n}} \leq x$的最大整数.其中$x&gt;0,p\in \mathbb{N}, p \geq 2$<br> 证明:</p>
-<ol>
-<li><p>$0 \leq a_{n} \leq p-1$</p>
-</li>
-<li><p>设$r_{n} = a_{0}+\frac{a_{1}}{p}+ \cdots + \frac{a_{n}}{p^{n}}$,证明$\sup r_{n} = x$</p>
-</li>
-</ol>
-</li>
-<li><p>已知$f(x)$在$(a,b)$上二阶可导,在$[a,b]$上连续,且其图像与连接$(a,f(a))$与$(b,(f(b))$两点的直线交于第三点.<br>证明:存在$c \in (a,b), f’’(c)=0$</p>
-</li>
-<li><p>已知$F(y) = \int\limits_{0}^{+\infty} \frac{sin(xy)}{x(1+x^2)} dx$.</p>
-<ol>
-<li><p>证明$F(y)$二阶可导</p>
-</li>
-<li><p>求$F(y)$的解析表达式</p>
-</li>
-</ol>
-</li>
-<li><p>$f(x,y)$有二阶连续偏导数,$E$为单位圆.求证<br> $$\lim_{r \to 0^{+}} \frac{\frac{1}{\pi r^2} \iint_E f(x,y)d\sigma - f(0,0)}{r^{2}} = \frac{1}{4}(f_{xx}(0,0)+f_{yy}(0,0))$$</p>
-</li>
-<li><p>$f(x)$有连续的导函数.证明:</p>
-<ol>
-<li><p>$E$为零测集,则$f(E)$也为零测集</p>
-</li>
-<li><p>$E$为可测集,则$f(E)$也为可测集</p>
-</li>
-</ol>
-</li>
-</ol>
-<h1 id="代数"><a href="#代数" class="headerlink" title="代数"></a>代数</h1><ol>
-<li><p>定义换位子$[X,Y] = XY - YX$,求证:</p>
-<ol>
-<li><p>$A,B \in M_{n}(\mathbb{R}), tr([A,B]) = O$</p>
-</li>
-<li><p>$X,Y,Z \in M_{2}(\mathbb{R}), [[X,Y]^2,Z] = O$</p>
-</li>
-</ol>
-</li>
-<li><p>求证:$A \in M_{n}(\mathbb{C})$,存在$N \in \mathbb{N}$使得$A^{N} = E$的充要条件是$A$可对角化,且所有特征值均为单位根.</p>
-</li>
-<li><p>已知$A,B$是实对称矩阵.且$AB = BA$. 求证:</p>
-<ol>
-<li><p>$AB$也是实对称矩阵</p>
-</li>
-<li><p>若$A$正定,$B$负定且$A$为对角形矩阵,证明$AB$是负定的</p>
-</li>
-<li><p>若$A$正定,$B$负定,证明$AB$是负定的</p>
-</li>
-</ol>
-</li>
-</ol>
-
-      
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/07/19/%E4%B8%80%E4%BB%BD%E8%AF%95%E9%A2%98/" rel="prev" title="一份试题">
+      <i class="fa fa-chevron-left"></i> 一份试题
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/06/15/Excel%E4%B8%AD%E7%9A%84%E5%88%97%E5%8F%B7%E8%BD%AC%E6%8D%A2/" rel="next" title="Excel的列号转换">
+      Excel的列号转换 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
-  
-
-
   
 
 
@@ -512,6 +333,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E8%B7%AF%E5%BE%84%E6%B5%8B%E8%AF%95"><span class="nav-number">1.</span> <span class="nav-text">基路径测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8B%AC%E7%AB%8B%E8%B7%AF%E5%BE%84%E4%B8%AA%E6%95%B0-%E5%9C%88%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-number">2.</span> <span class="nav-text">独立路径个数 &#x3D; 圈复杂度</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%90%861"><span class="nav-number">2.1.</span> <span class="nav-text">定理1 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%95%E7%90%861"><span class="nav-number">2.2.</span> <span class="nav-text">引理1 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%95%E7%90%862"><span class="nav-number">2.3.</span> <span class="nav-text">引理2 </span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%88%E5%A4%8D%E6%9D%82%E5%BA%A6%E7%9A%84%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">圈复杂度的计算方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%84%E9%80%A0%E6%96%B0%E5%9B%BE%E6%B1%82-v-G%E2%80%99"><span class="nav-number">3.1.</span> <span class="nav-text">构造新图求$v(G’)$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8D%E6%9E%84%E9%80%A0%E6%96%B0%E5%9B%BE%EF%BC%8C%E6%B1%82-e-n-2p"><span class="nav-number">3.2.</span> <span class="nav-text">不构造新图，求$e - n + 2p$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E4%BA%8E%E5%B9%B3%E9%9D%A2%E5%9B%BE%EF%BC%8C%E6%B1%82%E5%9B%B4%E6%88%90%E5%8C%BA%E5%9F%9F%E7%9A%84%E4%B8%AA%E6%95%B0"><span class="nav-number">3.3.</span> <span class="nav-text">对于平面图，求围成区域的个数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E4%BA%8E%E7%BB%93%E6%9D%9F%E7%82%B9%E5%94%AF%E4%B8%80%E7%9A%84%E7%A8%8B%E5%BA%8F%EF%BC%8C%E6%B1%82%E5%88%A4%E6%96%AD%E8%8A%82%E7%82%B9%E4%B8%AA%E6%95%B0%E5%8A%A01"><span class="nav-number">3.4.</span> <span class="nav-text">对于结束点唯一的程序，求判断节点个数加1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">4.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
